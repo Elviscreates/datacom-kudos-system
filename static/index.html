@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Kudos — Datacom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css?v=design5">
+    <script src="/static/app.js?v=design5" defer></script>
+  </head>
+  <body>
+    <header class="mobile-header">
+      <a class="brand" href="/" aria-label="Kudos home">
+        <svg class="brand-mark" viewBox="0 0 48 54" role="img" aria-label="Datacom">
+          <polygon points="24,2 45,14 45,40 24,52 3,40 3,14" fill="#181d26"/>
+          <g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter">
+            <path d="M24 10V44M24 17L15 22V28M24 17L33 22V28M24 28L14 34V40M24 28L34 34V40"/>
+          </g>
+          <g fill="#ffffff"><circle cx="24" cy="10" r="1.8"/><circle cx="15" cy="22" r="1.8"/><circle cx="33" cy="22" r="1.8"/><circle cx="14" cy="34" r="1.8"/><circle cx="34" cy="34" r="1.8"/><circle cx="24" cy="44" r="1.8"/></g>
+          <circle cx="24" cy="28" r="3" fill="#aa2d00"/>
+        </svg>
+        <span class="brand-wordmark">DATACOM</span>
+      </a>
+      <button class="icon-button mobile-menu-button" id="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Workspace navigation">
+        <div class="sidebar-brand-row">
+          <a class="brand" href="/" aria-label="Kudos home">
+            <svg class="brand-mark" viewBox="0 0 48 54" role="img" aria-label="Datacom">
+              <polygon points="24,2 45,14 45,40 24,52 3,40 3,14" fill="#181d26"/>
+              <g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter">
+                <path d="M24 10V44M24 17L15 22V28M24 17L33 22V28M24 28L14 34V40M24 28L34 34V40"/>
+              </g>
+              <g fill="#ffffff"><circle cx="24" cy="10" r="1.8"/><circle cx="15" cy="22" r="1.8"/><circle cx="33" cy="22" r="1.8"/><circle cx="14" cy="34" r="1.8"/><circle cx="34" cy="34" r="1.8"/><circle cx="24" cy="44" r="1.8"/></g>
+              <circle cx="24" cy="28" r="3" fill="#aa2d00"/>
+            </svg>
+            <span class="brand-wordmark">DATACOM</span>
+          </a>
+        </div>
+        <nav class="sidebar-nav" aria-label="Workspace">
+          <div class="sidebar-label">WORKSPACE</div>
+          <button class="nav-link active" type="button" data-filter="community"><span aria-hidden="true">◈</span>Dashboard</button>
+          <button class="nav-link" type="button" data-filter="given">Given by me</button>
+          <button class="nav-link" type="button" data-filter="received">Received by me</button>
+          <button class="nav-link" id="moderation-nav" type="button" data-filter="moderation" hidden>Moderation log</button>
+        </nav>
+        <div class="culture-callout">
+          <strong><span id="community-count">0</span> kudos shared</strong>
+          <p>Good work deserves to be seen. Keep the encouragement going.</p>
+        </div>
+        <div class="sidebar-profile-footer">
+          <div class="profile-footer-main">
+            <span class="profile-avatar" id="sidebar-avatar" aria-hidden="true">?</span>
+            <div class="sidebar-profile-copy">
+              <strong id="sidebar-name">Choose a profile</strong>
+              <span class="role-badge" id="sidebar-role">Local demo</span>
+            </div>
+          </div>
+          <label class="profile-switch-label" for="profile-select">Demo profile</label>
+          <select id="profile-select" class="profile-select" aria-label="Switch employee profile" disabled>
+            <option>Loading profiles…</option>
+          </select>
+        </div>
+      </aside>
+      <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+
+      <main class="main-content" id="dashboard">
+      <section class="page-heading" aria-labelledby="page-title">
+        <div>
+          <div class="eyebrow">PEOPLE & CULTURE</div>
+          <h1 id="page-title">Your recognition space</h1>
+        </div>
+        <div class="page-heading-actions">
+          <span class="active-filter" id="active-filter">Community feed</span>
+          <span class="demo-badge">Local demo profiles only</span>
+        </div>
+      </section>
+
+      <section class="welcome-card" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <span class="welcome-kicker">A LITTLE APPRECIATION GOES A LONG WAY</span>
+          <h2 id="welcome-title">Make someone’s day.</h2>
+          <p>Notice the effort. Celebrate the impact. Pass the good energy on.</p>
+          <a class="welcome-link" href="#give-kudos">Give kudos <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="recognition-art" aria-hidden="true">
+          <div class="art-heart">♥</div>
+          <strong>great work!</strong>
+        </div>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="composer-panel panel" id="give-kudos" aria-labelledby="composer-title">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">SPREAD THE GOOD</span>
+                <h2 id="composer-title">Give someone kudos</h2>
+              </div>
+            </div>
+            <form id="kudos-form" novalidate>
+              <div class="field-group">
+                <label for="recipient-search">Who are you celebrating?</label>
+                <div class="search-wrap">
+                  <span class="search-icon" aria-hidden="true">⌕</span>
+                  <input id="recipient-search" name="recipient" type="search" autocomplete="off" placeholder="Search colleagues…" aria-autocomplete="list" aria-controls="recipient-results">
+                </div>
+                <div id="recipient-results" class="recipient-results" role="listbox" aria-label="Colleague search results" hidden></div>
+                <div id="selected-recipient" class="selected-recipient" hidden></div>
+                <p class="field-error" id="recipient-error" aria-live="polite"></p>
+              </div>
+              <div class="field-group">
+                <div class="label-row">
+                  <label for="kudos-message">Your message</label>
+                  <span class="character-count" id="character-count">0 / 500</span>
+                </div>
+                <textarea id="kudos-message" name="message" rows="5" maxlength="500" placeholder="Tell them what they did and why it mattered…" required></textarea>
+                <p class="field-hint">A few sincere words can make a big difference.</p>
+                <p class="field-error" id="message-error" aria-live="polite"></p>
+              </div>
+              <div class="form-footer">
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                <button class="primary-button" id="submit-button" type="submit">Send kudos</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="feed-panel panel" aria-labelledby="feed-title">
+            <div class="panel-heading feed-heading">
+              <div>
+                <span class="section-kicker">GOOD THINGS HAPPENING</span>
+                <h2 id="feed-title">Kudos in the community</h2>
+              </div>
+              <button class="icon-button refresh-button" id="refresh-feed" type="button" aria-label="Refresh feed" title="Refresh">↻</button>
+            </div>
+            <div class="feed-subtitle"><span class="live-dot"></span> Shared with everyone</div>
+            <div id="feed-status" class="feed-status" role="status" aria-live="polite">Loading kudos…</div>
+            <div id="feed-list" class="feed-list" aria-live="polite"></div>
+            <button id="load-more" class="load-more" type="button" hidden>Load older kudos <span aria-hidden="true">↓</span></button>
+          </section>
+        </div>
+        <footer class="page-footer">Small moments of recognition. Big impact. <span>✦</span></footer>
+      </main>
+    </div>
+    <div class="modal-backdrop" id="profile-modal" hidden>
+      <section class="profile-dialog" role="dialog" aria-modal="true" aria-labelledby="profile-dialog-title">
+        <div class="dialog-mark" aria-hidden="true">✦</div>
+        <span class="section-kicker">WELCOME TO KUDOS</span>
+        <h2 id="profile-dialog-title">Choose a demo profile</h2>
+        <p>Select an employee to explore the dashboard. The Admin profile has moderation controls.</p>
+        <div id="profile-options" class="profile-options"></div>
+      </section>
+    </div>
+
+    <dialog id="moderation-dialog" class="moderation-dialog">
+      <form id="moderation-form" method="dialog">
+        <div class="dialog-close-row">
+          <div>
+            <span class="section-kicker">COMMUNITY CARE</span>
+            <h2 id="moderation-title">Moderate this kudos</h2>
+          </div>
+          <button class="icon-button" id="close-moderation" type="button" aria-label="Close dialog">×</button>
+        </div>
+        <p id="moderation-description" class="dialog-description"></p>
+        <label for="moderation-reason">Reason for moderation <span class="required-mark">*</span></label>
+        <textarea id="moderation-reason" rows="3" maxlength="500" required placeholder="Briefly explain why this needs attention…"></textarea>
+        <p id="moderation-error" class="field-error" aria-live="polite"></p>
+        <div class="dialog-actions">
+          <button id="cancel-moderation" class="secondary-button" type="button">Cancel</button>
+          <button id="confirm-moderation" class="danger-button" type="submit">Confirm</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
